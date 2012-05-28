@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.oatsystems.lambdazen</groupId>
+  <groupId>com.lambdazen.websocket</groupId>
   <artifactId>rmi-websocket</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -47,5 +47,4 @@
 	  <version>8.1.3.v20120416</version>
     </dependency>
   </dependencies>
-  <inceptionYear>5/1/2012</inceptionYear>
 </project>
