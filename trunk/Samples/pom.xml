@@ -4,7 +4,7 @@
   <groupId>com.lambdazen.websocket</groupId>
   <artifactId>rmiws-sample</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.5</version>
   <name>Sample Webapp with RMI WebSocket</name>
   <url>http://sourceforge.net/rmiwebsocket</url>
   <dependencies>
@@ -43,7 +43,7 @@
     <dependency>
 	  <groupId>com.lambdazen.websocket</groupId>
 	  <artifactId>rmi-websocket</artifactId>
-	  <version>0.0.1-SNAPSHOT</version>
+	  <version>0.5</version>
     </dependency>
   </dependencies>
   <build>
