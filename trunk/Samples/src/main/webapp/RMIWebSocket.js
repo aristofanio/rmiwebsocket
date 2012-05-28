@@ -1,6 +1,6 @@
 // Except otherwise noted, this report is © 2012 Sridhar Ramachandran, under a 
 // Creative Commons Attribution license: http://creativecommons.org/licenses/by/3.0/
-// Please cite "RMI WebSocket, http://lambdazen.com/rmiwebsocket/"
+// Please cite "RMI WebSocket, http://rmiwebsocket.sourceforge.net/"
 function RMIWebSocket(url, callback) {
     "use strict";
 
