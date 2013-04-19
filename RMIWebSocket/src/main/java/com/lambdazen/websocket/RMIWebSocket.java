@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,12 +34,12 @@ public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
         this.request = request;
         this.factory = factory;
         this.mapper = new ObjectMapper();
-        this.methodMap = new TreeMap<String, Method>();
+        this.methodMap = new HashMap<String, Method>();
     }
 
     @Override
     public synchronized void onClose(int closeCode, String message) {
-        if (!closed) {
+        if ((!closed) && (wsListener != null)) {
             wsListener.onClose();
         }
         closed = true;
@@ -50,11 +50,16 @@ public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
         this.connection = conn;
 
         this.wsListener = factory.createListener(this);
-
-        try {
-            loadObjectDetails();
-        } catch (RMIWebSocketException e) {
-            wsListener.onError(e);
+        
+        if (wsListener == null) {
+            // Listener was not successfully created. Close the connection
+            close();
+        } else {
+            try {
+                loadObjectDetails();
+            } catch (RMIWebSocketException e) {
+                wsListener.onError(e);
+            }
         }
     }
 
@@ -80,7 +85,7 @@ public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
 
     @Override
     public synchronized void onMessage(String jsonMsg) {
-        if (!closed) {
+        if ((!closed) && (wsListener != null)) {
             String methodName;
             List<String> paramStrList = new ArrayList<String>();
 
