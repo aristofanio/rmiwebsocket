@@ -7,13 +7,13 @@
 
   <name>RMIWebSocket</name>
   <url>http://sourceforge.net/rmiwebsocket</url>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <description>RMI WebSocket provides a library for remote method invocations between a browser and a Jetty Web Server using the HTML5 WebSocket. The idea is to enable tight method-level integration between the user interface and the server so that patterns such as MVP (Model-View-Presenter) can be applied in a Web environment. </description>
   <inceptionYear>5/1/2012</inceptionYear>
   <scm>
-    <url>http://sourceforge.net/p/rmiwebsocket/code/tags/release-1.0</url>
-    <connection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/tags/release-1.0</connection>
-    <developerConnection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/tags/release-1.0</developerConnection>
+    <url>http://sourceforge.net/p/rmiwebsocket/code/</url>
+    <connection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/trunk/RMIWebSocket</connection>
+    <developerConnection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/trunk/RMIWebSocket</developerConnection>
   </scm>
   
   <properties>
