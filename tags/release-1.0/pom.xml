@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.lambdazen.websocket</groupId>
+	<artifactId>rmi-websocket</artifactId>
+  <packaging>jar</packaging>
+
+  <name>RMIWebSocket</name>
+  <url>http://sourceforge.net/rmiwebsocket</url>
+  <version>1.0</version>
+  <description>RMI WebSocket provides a library for remote method invocations between a browser and a Jetty Web Server using the HTML5 WebSocket. The idea is to enable tight method-level integration between the user interface and the server so that patterns such as MVP (Model-View-Presenter) can be applied in a Web environment. </description>
+  <inceptionYear>5/1/2012</inceptionYear>
+  <scm>
+    <url>http://sourceforge.net/p/rmiwebsocket/code/tags/release-1.0</url>
+    <connection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/tags/release-1.0</connection>
+    <developerConnection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/tags/release-1.0</developerConnection>
+  </scm>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <licenses>Apache License 2.0</licenses>
+  </properties>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
+  <build>
+	<plugins>
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>1.7</source>
+				<target>1.7</target>
+			</configuration>
+			<executions>
+				<execution>
+					<id>default-testCompile</id>
+					<phase>test-compile</phase>
+					<goals>
+						<goal>testCompile</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>default-compile</id>
+					<phase>compile</phase>
+					<goals>
+						<goal>compile</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+    
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+      </plugin>
+        
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9</version>
+        <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+	  <groupId>org.codehaus.jackson</groupId>
+	  <artifactId>jackson-mapper-asl</artifactId>
+	  <version>1.9.7</version>
+    </dependency>
+    <dependency>
+	  <groupId>org.codehaus.jackson</groupId>
+	  <artifactId>jackson-core-asl</artifactId>
+	  <version>1.9.7</version>
+    </dependency>
+    <dependency>
+	  <groupId>org.eclipse.jetty</groupId>
+	  <artifactId>jetty-websocket</artifactId>
+	  <version>8.1.3.v20120416</version>
+    </dependency>
+    <dependency>
+	  <groupId>org.eclipse.jetty</groupId>
+	  <artifactId>jetty-util</artifactId>
+	  <version>8.1.3.v20120416</version>
+    </dependency>
+    <dependency>
+	  <groupId>org.eclipse.jetty</groupId>
+	  <artifactId>jetty-server</artifactId>
+	  <version>8.1.3.v20120416</version>
+    </dependency>
+  </dependencies>
+</project>
