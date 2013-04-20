@@ -12,8 +12,8 @@
   <inceptionYear>5/1/2012</inceptionYear>
   <scm>
     <url>http://sourceforge.net/p/rmiwebsocket/code/</url>
-    <connection>scm:svn:http://svn.code.sf.net/p/rmiwebsocket/code/trunk/</connection>
-    <developerConnection>scm:svn:http://svn.code.sf.net/p/rmiwebsocket/code/trunk/</developerConnection>
+    <connection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/trunk/RMIWebSocket</connection>
+    <developerConnection>scm:svn:https://svn.code.sf.net/p/rmiwebsocket/code/trunk/RMIWebSocket</developerConnection>
   </scm>
   
   <properties>
