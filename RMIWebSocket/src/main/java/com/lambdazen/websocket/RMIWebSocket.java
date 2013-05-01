@@ -12,10 +12,10 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.jetty.websocket.WebSocket;
 
 public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
@@ -93,7 +93,7 @@ public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
                 // Get the method and parameters
                 JsonNode rootNode = mapper.readValue(jsonMsg, JsonNode.class);
                 methodName = rootNode.get(METHOD).asText();
-                Iterator<JsonNode> paramNodes = rootNode.get(PARAMS).getElements();
+                Iterator<JsonNode> paramNodes = rootNode.get(PARAMS).elements();
 
                 while (paramNodes.hasNext()) {
                     JsonNode param = paramNodes.next();
