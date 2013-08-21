@@ -65,7 +65,8 @@ public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
 
     // Go through the callback handler's methods
     private void loadObjectDetails() throws RMIWebSocketException {
-        for (Method method : wsListener.getClass().getDeclaredMethods()) {
+        //for (Method method : wsListener.getClass().getDeclaredMethods()) {
+        for (Method method : wsListener.getClass().getMethods()) {
             if (!Modifier.isPublic(method.getModifiers())) {
                 // Skip protected and private methods
                 continue;
