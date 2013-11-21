@@ -114,7 +114,14 @@ public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
                 Object[] paramObjs = new Object[paramStrList.size()];
                 Class[] paramTypes = method.getParameterTypes();
                 for (int i = 0; i < paramTypes.length; i++) {
-                    paramObjs[i] = mapper.readValue(paramStrList.get(i), paramTypes[i]);
+                    if (ComplexType.class.isAssignableFrom(paramTypes[i])) {
+                        ComplexType paramHolder = (ComplexType) (paramTypes[i].newInstance());
+                        Object value = mapper.readValue(paramStrList.get(i), paramHolder.getTypeReference());
+                        paramHolder.setValue(value);
+                        paramObjs[i] = paramHolder;
+                    } else {
+                        paramObjs[i] = mapper.readValue(paramStrList.get(i), paramTypes[i]);
+                    }
                 }
 
                 // Invoke the method
@@ -168,7 +175,7 @@ public class RMIWebSocket implements WebSocket.OnTextMessage, IRMIWebSocket {
             try {
                 connection.sendMessage(msg);
             } catch (IOException e) {
-                throw new RMIWebSocketException("Unable to send message " + msg.substring(0, 200) + (msg.length() > 200 ? "..." : ""));
+                throw new RMIWebSocketException("Unable to send message " + (msg.length() > 200 ? msg.substring(0, 200) + "..." : msg));
             }
         }
     }
